@@ -1,6 +1,3 @@
-# The Code Assignment
-![file](assignment.pdf)
-
 # Backend Setup Instructions
 
 ## Navigate to application
@@ -55,3 +52,8 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 ## Proof
 ![proof](proof.png)
+
+
+# The Code Assignment
+![file](assignment.pdf)
+
