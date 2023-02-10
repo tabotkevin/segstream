@@ -4,10 +4,9 @@ import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 
-import CreateForm from "../forms/CreateForm"
-import ListUsers from "../forms/ListUsers"
-import ResponseForm from "../forms/ResponseForm"
-import RequestForm from "../forms/RequestForm"
+import ListUsers from "../forms/ListUsers";
+import ResponseForm from "../forms/ResponseForm";
+import RequestForm from "../forms/RequestForm";
 
 
 const Home = () => {
@@ -18,10 +17,10 @@ const Home = () => {
       <Row>
         <Col>
           <Row>
-            <ListUsers/>
+            <ListUsers />
           </Row>
-          <br/>
-          
+          <br />
+
           <Row>
             <Col>
               <Button variant="info" onClick={() => setRequest('get')}>GET</Button>
@@ -37,16 +36,16 @@ const Home = () => {
             </Col>
           </Row>
 
-          <br/>
+          <br />
           <Row>
-            <RequestForm request={request}/>
+            <RequestForm request={request} />
           </Row>
         </Col>
         <Col>
-          <ResponseForm/>
+          <ResponseForm />
         </Col>
       </Row>
     </Container>
   )
 }
-export default Home
+export default Home;

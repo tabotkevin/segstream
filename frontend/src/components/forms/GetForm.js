@@ -1,18 +1,16 @@
-import {useRef, useContext} from 'react';
+import { useRef, useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
-import {ResponseContext} from '../../App';
-
-import api from '../../api'
+import api from '../../api';
+import { ResponseContext } from '../../App';
 
 const GetForm = () => {
-  
   const id = useRef();
   const responseContext = useContext(ResponseContext)
 
   const submit = e => {
-    e.preventDefault()
+    e.preventDefault();
     api.user.get(id.current.value).then((response) => {
       responseContext.newResponse(JSON.stringify(response));
     }).catch((error) => {

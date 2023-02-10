@@ -1,18 +1,18 @@
-import {useEffect, useState} from 'react'
+import { useEffect, useState } from 'react'
 import Container from 'react-bootstrap/Container';
 
 import api from '../../api';
 
 const Requests = () => {
-  const [hits, setHits] = useState()
-  
+  const [hits, setHits] = useState();
+
   useEffect(() => {
     api.requests.fetchAll().then((response) => {
       setHits(JSON.stringify(response.hits));
     }).catch((error) => {
-        console.log(JSON.stringify(error))
+      console.log(JSON.stringify(error))
     });
-  }, [])
+  }, []);
 
   return (
     <Container>
@@ -20,4 +20,4 @@ const Requests = () => {
     </Container>
   )
 }
-export default Requests
+export default Requests;

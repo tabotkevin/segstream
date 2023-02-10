@@ -1,35 +1,32 @@
-import {useRef, useContext} from 'react';
-import {ResponseContext} from '../../App';
+import { useRef, useContext } from 'react';
 
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
 import api from '../../api'
+import { ResponseContext } from '../../App';
 
 const CreateForm = () => {
-  
   const first_name = useRef();
   const last_name = useRef();
   const username = useRef();
   const email = useRef();
-  const responseContext = useContext(ResponseContext)
+  const responseContext = useContext(ResponseContext);
 
   const submit = e => {
-    e.preventDefault()
-
+    e.preventDefault();
     const data = {
       first_name: first_name.current.value,
       last_name: last_name.current.value,
-      username : username.current.value,
-      email : email.current.value,
-    }
+      username: username.current.value,
+      email: email.current.value,
+    };
 
     api.user.create(data).then((response) => {
       responseContext.newResponse(JSON.stringify(response));
     }).catch((error) => {
       responseContext.newResponse(JSON.stringify(error));
     });
-
   }
 
   return (
@@ -46,7 +43,7 @@ const CreateForm = () => {
 
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Username</Form.Label>
-        <Form.Control type="text"  ref={username} placeholder="Enter Username" />
+        <Form.Control type="text" ref={username} placeholder="Enter Username" />
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicEmail">

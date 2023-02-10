@@ -1,23 +1,23 @@
-import {useState, createContext } from 'react'
-import { RouterProvider } from 'react-router-dom';
+import { useState, createContext } from 'react'
 import Container from 'react-bootstrap/Container';
+import Header from './components/Header.js';
+import { RouterProvider } from 'react-router-dom';
 
 import router from './Routes.js';
-import Header from './components/Header.js';
 
-export const ResponseContext = createContext()
+export const ResponseContext = createContext();
 
-const App = () =>  {
-  const [response, setResponse] = useState()
+const App = () => {
+  const [response, setResponse] = useState();
 
-    const responseContext = {
-      response: response,
-      newResponse: (_response ) => { setResponse(_response) },
-  }
+  const responseContext = {
+    response: response,
+    newResponse: (_response) => { setResponse(_response) },
+  };
 
-    return (
+  return (
     <Container fluid>
-      <Header/>
+      <Header />
       <ResponseContext.Provider value={responseContext}>
         <RouterProvider router={router} />
       </ResponseContext.Provider>

@@ -1,14 +1,14 @@
-import {useState, useEffect} from 'react'
-import api from '../../api'
+import { useState, useEffect } from 'react';
+import api from '../../api';
 
 const ListUsers = () => {
-  const [users, setUsers] = useState()
+  const [users, setUsers] = useState();
 
   useEffect(() => {
     api.user.getAll().then((users) => {
       setUsers(JSON.stringify(users, undefined, 2))
     });
-  }, [])
+  }, []);
 
   return (
     <div>
@@ -18,4 +18,4 @@ const ListUsers = () => {
   )
 }
 
-export default ListUsers
+export default ListUsers;

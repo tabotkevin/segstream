@@ -1,8 +1,8 @@
-import { useContext } from 'react'
-import {ResponseContext} from '../../App';
+import { useContext } from 'react';
+import { ResponseContext } from '../../App';
 
 const Response = () => {
-  const responseContext = useContext(ResponseContext)
+  const responseContext = useContext(ResponseContext);
   return (
     <div>
       <h2>Response</h2>
@@ -11,4 +11,4 @@ const Response = () => {
   )
 }
 
-export default Response
+export default Response;
