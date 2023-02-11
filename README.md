@@ -55,5 +55,5 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 
 # The Code Assignment
-![file](assignment.pdf)
+![file](assignment.png)
 

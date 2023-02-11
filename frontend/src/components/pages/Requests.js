@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import Container from 'react-bootstrap/Container';
 
-import api from '../../api';
+import api from '../../Api';
 
 const Requests = () => {
   const [hits, setHits] = useState();

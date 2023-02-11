@@ -1,20 +1,22 @@
 import axios from "axios";
 
-export default {
+const api = {
   user: {
-    get: (id) => axios.get(`/user/${id}`).then((res) => res.data),
+    get: (id) => axios.get(`/user/${id}`).then((res) => res),
     create: (data) =>
       axios
         .post("/user/create", data)
-        .then((res) => res.data),
+        .then((res) => res),
     update: (data) =>
       axios
         .put(`/user/${data.id}`, data)
-        .then((res) => res.data),
+        .then((res) => res),
     delete: (id) => axios.delete(`/user/${id}`),
-    getAll: () => axios.get("/users").then((res) => res.data),
+    getAll: () => axios.get("/users").then((res) => res),
   },
   requests: {
     fetchAll: () => axios.get("/requests").then((res) => res.data),
   },
 };
+
+export default api;

@@ -1,19 +1,23 @@
-import { useState, useEffect } from 'react';
-import api from '../../api';
+import { useEffect } from 'react';
+import api from '../../Api';
+import { useStore } from '../../Store';
 
 const ListUsers = () => {
-  const [users, setUsers] = useState();
+  const store = useStore();
 
   useEffect(() => {
-    api.user.getAll().then((users) => {
-      setUsers(JSON.stringify(users, undefined, 2))
+    api.user.getAll().then((res) => {
+      store.setUsers(res.data);
+      store.newResponse(res);
     });
   }, []);
 
   return (
     <div>
       <h4>All Users</h4>
-      <div style={{ height: '50vh' }} className="bg-light border">{users}</div>
+      <div style={{ height: '50vh', color: 'red' }} className="bg-light border">
+        <pre>{JSON.stringify(store.users, undefined, 2)}</pre>
+      </div>
     </div>
   )
 }

@@ -1,10 +1,10 @@
-import { useRef, useContext } from 'react';
+import { useRef } from 'react';
 
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
-import api from '../../api';
-import { ResponseContext } from '../../App';
+import api from '../../Api';
+import { useStore } from '../../Store';
 
 const UpdateForm = () => {
 
@@ -13,7 +13,7 @@ const UpdateForm = () => {
   const last_name = useRef();
   const username = useRef();
   const email = useRef();
-  const responseContext = useContext(ResponseContext);
+  const store = useStore();
 
   const submit = e => {
     e.preventDefault();
@@ -25,10 +25,11 @@ const UpdateForm = () => {
       username: username.current.value,
       email: email.current.value,
     };
-    api.user.update(data).then((response) => {
-      responseContext.newResponse(JSON.stringify(response));
+
+    api.user.update(data).then((res) => {
+      store.newResponse(res);
     }).catch((error) => {
-      responseContext.newResponse(JSON.stringify(error));
+      store.newResponse(JSON.stringify(error));
     });
   }
 
